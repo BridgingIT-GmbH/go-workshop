@@ -2,17 +2,20 @@ package de.bit.workshop.moviedb.application;
 
 import de.bit.workshop.moviedb.domain.api.Movie;
 import de.bit.workshop.moviedb.domain.api.MovieDbService;
-import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.config.Configuration;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/movies", produces = "application/json")
@@ -20,25 +23,15 @@ import java.util.stream.Collectors;
 public class MovieDbController {
 
     private MovieDbService movieDbService;
-    private final ModelMapper modelMapper = new ModelMapper();
-
-    @PostConstruct
-    public void init() {
-        modelMapper.getConfiguration()
-                .setFieldMatchingEnabled(true)
-                .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE);
-    }
 
     @GetMapping
-    public List<MovieDto> getAll() {
-        List<Movie> movies = movieDbService.loadAllMovies();
-        return mapToDto(movies);
+    public List<Movie> getAll() {
+        return movieDbService.loadAllMovies();
     }
 
     @GetMapping("/{id}")
-    public MovieDto get(@PathVariable String id) {
-        Movie movie = movieDbService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
-        return this.mapToDto(movie);
+    public Movie get(@PathVariable String id) {
+        return movieDbService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
     }
 
     @GetMapping(value = "/{id}/cover")
@@ -51,24 +44,13 @@ public class MovieDbController {
     }
 
     @PostMapping
-    public MovieDto createOrUpdate(@RequestBody MovieDto movieDto) {
-        Movie movie = movieDbService.createOrUpdateMovie(modelMapper.map(movieDto, Movie.class));
-        return this.mapToDto(movie);
+    public Movie createOrUpdate(@RequestBody Movie movie) {
+        return movieDbService.createOrUpdateMovie(movie);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
         movieDbService.deleteMovie(UUID.fromString(id));
-    }
-
-    private MovieDto mapToDto(Movie movie) {
-        MovieDto movieDto = modelMapper.map(movie, MovieDto.class);
-        movieDto.setBase64Cover(null);
-        return movieDto;
-    }
-
-    private List<MovieDto> mapToDto(List<Movie> movies) {
-        return movies.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 }

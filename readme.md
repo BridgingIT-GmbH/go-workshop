@@ -7,7 +7,7 @@
 | moviedb-java   | Spring Boot Implementation of moviedb endpoint                                                   |
 
 ### Build docker image for moviedb-java
-Switch to folder [moviedp-java](./moviedb-java/) and use [Dockerfile](./moviedb-java/Dockerfile) to build image:
+Switch to folder [moviedb-java](./moviedb-java/) and use [Dockerfile](./moviedb-java/Dockerfile) to build image:
 ```bash
 docker buildx build --platform linux/amd64 -t moviedb-java:latest -f Dockerfile .`
 ```
