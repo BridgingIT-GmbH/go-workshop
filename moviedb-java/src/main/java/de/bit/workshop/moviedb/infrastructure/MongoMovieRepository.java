@@ -1,7 +1,7 @@
 package de.bit.workshop.moviedb.infrastructure;
 
 import de.bit.workshop.moviedb.domain.api.Movie;
-import de.bit.workshop.moviedb.domain.api.MovieDbRepository;
+import de.bit.workshop.moviedb.domain.api.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -13,9 +13,9 @@ import java.util.UUID;
 @Repository
 @Primary
 @AllArgsConstructor
-public class MongoMovieDbRepository implements MovieDbRepository {
+public class MongoMovieRepository implements MovieRepository {
 
-    private SpringDataMongoMovieDbRepository repo;
+    private SpringDataMongoMovieRepository repo;
     @Override
     public List<Movie> findAll() {
         return repo.findAll();

@@ -1,8 +1,8 @@
 package de.bit.workshop.moviedb.domain;
 
 import de.bit.workshop.moviedb.domain.api.Movie;
-import de.bit.workshop.moviedb.domain.api.MovieDbRepository;
-import de.bit.workshop.moviedb.domain.api.MovieDbService;
+import de.bit.workshop.moviedb.domain.api.MovieRepository;
+import de.bit.workshop.moviedb.domain.api.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,9 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class DomainMovieDbService implements MovieDbService {
+public class DomainMovieService implements MovieService {
 
-    private MovieDbRepository rep;
+    private MovieRepository rep;
 
     @Override
     public List<Movie> loadAllMovies() {

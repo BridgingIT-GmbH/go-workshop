@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface MovieDbService {
+public interface MovieService {
 
     List<Movie> loadAllMovies();
     Optional<Movie> loadMovieById(UUID movieId);

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface MovieDbRepository {
+public interface MovieRepository {
 
     List<Movie> findAll();
     Optional<Movie> findById(UUID id);

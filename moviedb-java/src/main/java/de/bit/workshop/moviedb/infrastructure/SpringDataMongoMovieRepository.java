@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface SpringDataMongoMovieDbRepository extends MongoRepository<Movie, UUID> {
+public interface SpringDataMongoMovieRepository extends MongoRepository<Movie, UUID> {
 }

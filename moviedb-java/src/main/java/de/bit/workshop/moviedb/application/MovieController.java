@@ -1,7 +1,7 @@
 package de.bit.workshop.moviedb.application;
 
 import de.bit.workshop.moviedb.domain.api.Movie;
-import de.bit.workshop.moviedb.domain.api.MovieDbService;
+import de.bit.workshop.moviedb.domain.api.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -20,23 +20,23 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/movies", produces = "application/json")
 @AllArgsConstructor
-public class MovieDbController {
+public class MovieController {
 
-    private MovieDbService movieDbService;
+    private MovieService movieService;
 
     @GetMapping
     public List<Movie> getAll() {
-        return movieDbService.loadAllMovies();
+        return movieService.loadAllMovies();
     }
 
     @GetMapping("/{id}")
     public Movie get(@PathVariable String id) {
-        return movieDbService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
+        return movieService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
     }
 
     @GetMapping(value = "/{id}/cover")
     public String getCover(@PathVariable String id) {
-        Movie movie = movieDbService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
+        Movie movie = movieService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
         if (movie.getBase64Cover() == null) {
             throw new ResourceNotFoundException();
         }
@@ -45,12 +45,12 @@ public class MovieDbController {
 
     @PostMapping
     public Movie createOrUpdate(@RequestBody Movie movie) {
-        return movieDbService.createOrUpdateMovie(movie);
+        return movieService.createOrUpdateMovie(movie);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
-        movieDbService.deleteMovie(UUID.fromString(id));
+        movieService.deleteMovie(UUID.fromString(id));
     }
 }
