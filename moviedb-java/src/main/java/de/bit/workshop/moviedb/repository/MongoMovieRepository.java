@@ -1,7 +1,7 @@
-package de.bit.workshop.moviedb.infrastructure;
+package de.bit.workshop.moviedb.repository;
 
-import de.bit.workshop.moviedb.domain.api.Movie;
-import de.bit.workshop.moviedb.domain.api.MovieRepository;
+import de.bit.workshop.moviedb.model.Movie;
+import de.bit.workshop.moviedb.service.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;

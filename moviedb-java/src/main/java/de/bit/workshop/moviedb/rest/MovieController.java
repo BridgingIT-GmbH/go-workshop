@@ -1,7 +1,7 @@
-package de.bit.workshop.moviedb.application;
+package de.bit.workshop.moviedb.rest;
 
-import de.bit.workshop.moviedb.domain.api.Movie;
-import de.bit.workshop.moviedb.domain.api.MovieService;
+import de.bit.workshop.moviedb.model.Movie;
+import de.bit.workshop.moviedb.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,6 @@
-package de.bit.workshop.moviedb.domain.api;
+package de.bit.workshop.moviedb.service;
+
+import de.bit.workshop.moviedb.model.Movie;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package de.bit.workshop.moviedb.domain.api;
+package de.bit.workshop.moviedb.model;
 
 
 import lombok.AllArgsConstructor;
