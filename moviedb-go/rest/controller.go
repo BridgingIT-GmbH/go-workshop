@@ -2,11 +2,11 @@ package rest
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/render"
 	"github.com/go-workshop/moviedb/model"
 	"github.com/go-workshop/moviedb/service"
+	"log"
 	"net/http"
 )
 
@@ -18,24 +18,36 @@ func NewMovieDbController(service service.MovieDbService) MovieDbController {
 	return MovieDbController{service}
 }
 func (c MovieDbController) FindAll(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("You called 'FindAll'"))
+	movies, err := c.service.LoadAllMovies()
+	renderOrError(w, r, movies, err)
 }
 func (c MovieDbController) FindById(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	w.Write([]byte(fmt.Sprintf("You called FindById with id: '%v'", id)))
+	movie, err := c.service.LoadMovieById(id)
+	renderOrError(w, r, movie, err)
 }
 func (c MovieDbController) CreateOrUpdate(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	var movie model.Movie
 	err := decoder.Decode(&movie)
-	if err != nil {
-		w.WriteHeader(400)
-		w.Write([]byte("You called 'CreateOrUpdate' with wrong payload"))
-		return
+	if err == nil {
+		movie, err2 := c.service.CreateOrUpdateMovie(movie)
+		renderOrError(w, r, movie, err2)
+	} else {
+		renderOrError(w, r, movie, err)
 	}
-	render.JSON(w, r, movie)
 }
 func (c MovieDbController) Delete(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	w.Write([]byte(fmt.Sprintf("You called Delete with id: '%v'", id)))
+	c.service.DeleteMovie(id)
+}
+
+func renderOrError(w http.ResponseWriter, r *http.Request, model interface{}, err error) {
+	if err == nil {
+		render.JSON(w, r, model)
+	} else {
+		log.Println(err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		_, _ = w.Write(nil)
+	}
 }
