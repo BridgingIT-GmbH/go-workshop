@@ -31,12 +31,12 @@ public class MovieController {
 
     @GetMapping("/{id}")
     public Movie get(@PathVariable String id) {
-        return movieService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
+        return movieService.loadMovieById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
     @GetMapping(value = "/{id}/cover")
     public String getCover(@PathVariable String id) {
-        Movie movie = movieService.loadMovieById(UUID.fromString(id)).orElseThrow(ResourceNotFoundException::new);
+        Movie movie = movieService.loadMovieById(id).orElseThrow(ResourceNotFoundException::new);
         if (movie.getBase64Cover() == null) {
             throw new ResourceNotFoundException();
         }
@@ -51,6 +51,6 @@ public class MovieController {
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
-        movieService.deleteMovie(UUID.fromString(id));
+        movieService.deleteMovie(id);
     }
 }

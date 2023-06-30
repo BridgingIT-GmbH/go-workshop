@@ -18,18 +18,18 @@ public class MovieService {
         return rep.findAll();
     }
 
-    public Optional<Movie> loadMovieById(UUID movieId) {
+    public Optional<Movie> loadMovieById(String movieId) {
         return rep.findById(movieId);
     }
 
     public Movie createOrUpdateMovie(Movie movie) {
         if (movie.getId() == null) {
-            movie.setId(UUID.randomUUID());
+            movie.setId(UUID.randomUUID().toString());
         }
         return rep.createOrUpdate(movie);
     }
 
-    public void deleteMovie(UUID movieId) {
+    public void deleteMovie(String movieId) {
         rep.delete(movieId);
     }
 }

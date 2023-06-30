@@ -22,7 +22,7 @@ public class MongoMovieRepository implements MovieRepository {
     }
 
     @Override
-    public Optional<Movie> findById(UUID id) {
+    public Optional<Movie> findById(String id) {
         return repo.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class MongoMovieRepository implements MovieRepository {
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(String id) {
         repo.deleteById(id);
     }
 }

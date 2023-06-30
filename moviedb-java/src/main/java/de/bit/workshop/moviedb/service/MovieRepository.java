@@ -9,9 +9,9 @@ import java.util.UUID;
 public interface MovieRepository {
 
     List<Movie> findAll();
-    Optional<Movie> findById(UUID id);
+    Optional<Movie> findById(String id);
 
     Movie createOrUpdate(Movie movie);
 
-    void delete(UUID id);
+    void delete(String id);
 }
