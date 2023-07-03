@@ -1,22 +1,19 @@
-FROM openjdk:17-alpine as build
-WORKDIR /workspace/app
+FROM golang:alpine as build
+RUN apk update && apk add --no-cache git
 
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
+WORKDIR $GOPATH/src/mypackage/myapp/
+COPY . .
 
-RUN ./mvnw install -DskipTests
-RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+# Fetch dependencies.
+RUN go get -d -v
+# Build the binary.
+RUN go build -o /opt/moviedb/moviedb
 
-FROM openjdk:17-alpine
-VOLUME /tmp
-ARG DEPENDENCY=/workspace/app/target/dependency
-ENV MONGO_HOST localhost
-ENV MONGO_PORT 27017
 
+FROM scratch
+COPY --from=build /opt/moviedb/moviedb /opt/moviedb/moviedb
+ENV MONGO_URI "mongodb://localhost:27017"
+ENV SERVER_HOST_PORT "0.0.0.0:8080"
 EXPOSE 8080
-COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","de.bit.workshop.moviedb.MoviedbApplication", "--spring.data.mongodb.host=${MONGO_HOST}","--spring.data.mongodb.host=${MONGO_HOST}"]
+ENTRYPOINT ["/opt/moviedb/moviedb"]
+
