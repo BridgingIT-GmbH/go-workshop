@@ -34,15 +34,6 @@ public class MovieController {
         return movieService.loadMovieById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
-    @GetMapping(value = "/{id}/cover")
-    public String getCover(@PathVariable String id) {
-        Movie movie = movieService.loadMovieById(id).orElseThrow(ResourceNotFoundException::new);
-        if (movie.getBase64Cover() == null) {
-            throw new ResourceNotFoundException();
-        }
-        return movie.getBase64Cover();
-    }
-
     @PostMapping
     public Movie createOrUpdate(@RequestBody Movie movie) {
         return movieService.createOrUpdateMovie(movie);
