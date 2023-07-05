@@ -11,22 +11,22 @@ import (
 )
 
 type MovieDbController struct {
-	service service.MovieDbService
+	service *service.MovieDbService
 }
 
-func NewMovieDbController(service service.MovieDbService) MovieDbController {
-	return MovieDbController{service}
+func NewMovieDbController(service *service.MovieDbService) *MovieDbController {
+	return &MovieDbController{service}
 }
-func (c MovieDbController) FindAll(w http.ResponseWriter, r *http.Request) {
+func (c *MovieDbController) FindAll(w http.ResponseWriter, r *http.Request) {
 	movies, err := c.service.LoadAllMovies()
 	renderOrError(w, r, movies, err)
 }
-func (c MovieDbController) FindById(w http.ResponseWriter, r *http.Request) {
+func (c *MovieDbController) FindById(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	movie, err := c.service.LoadMovieById(id)
 	renderOrError(w, r, movie, err)
 }
-func (c MovieDbController) CreateOrUpdate(w http.ResponseWriter, r *http.Request) {
+func (c *MovieDbController) CreateOrUpdate(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	var movie model.Movie
 	err := decoder.Decode(&movie)
@@ -37,7 +37,7 @@ func (c MovieDbController) CreateOrUpdate(w http.ResponseWriter, r *http.Request
 		renderOrError(w, r, movie, err)
 	}
 }
-func (c MovieDbController) Delete(w http.ResponseWriter, r *http.Request) {
+func (c *MovieDbController) Delete(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	c.service.DeleteMovie(id)
 }

@@ -5,7 +5,7 @@ import (
 	"github.com/go-workshop/moviedb/rest"
 )
 
-func Routes(movieDbController rest.MovieDbController) *chi.Mux {
+func Routes(movieDbController *rest.MovieDbController) *chi.Mux {
 
 	r := chi.NewRouter()
 	r.Get("/movies", movieDbController.FindAll)

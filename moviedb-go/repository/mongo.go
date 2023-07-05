@@ -3,7 +3,6 @@ package repository
 import (
 	"context"
 	"github.com/go-workshop/moviedb/model"
-	"github.com/go-workshop/moviedb/service"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -14,7 +13,7 @@ type MongoMovieDbRepository struct {
 	client *mongo.Client
 }
 
-func NewMongoMovieDbRepository(client *mongo.Client) service.MovieDbRepository {
+func NewMongoMovieDbRepository(client *mongo.Client) MongoMovieDbRepository {
 	return MongoMovieDbRepository{client}
 }
 
