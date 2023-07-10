@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <img style="margin:0.3em 0em 0em 0.3em" src="img/Go-Logo_Blue-reduced.png" height="70" alt="Go Logo"/>
+    <div class="slides">
+        <section>
+            <h3>Workshop: Introduction to <br>the Programming Language<br>
+                <a style="font-style: italic" href="https://go.dev">Go</a>
+            </h3>
+            <p>bIT Entwicklertag 14.07.2023</p>
+        </section>
+        <section>
+            <h3>Tools you need locally</h3>
+            <ul>
+                <li>Latest <a href="https://go.dev/dl/">Go</a> Version</li>
+                <li>IDE (maybe <a href="https://code.visualstudio.com/download">VS Code</a> or <a href="https://www.jetbrains.com/de-de/go/">Goland</a>)</li>
+                <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
+                <li><a href="https://www.postman.com/downloads/">Postman</a></li>
+                <li><a href="https://www.docker.com/products/docker-desktop/">Docker</a></li>
+            </ul>
+        </section>
+        <section>
+            <h3>Helpful Links</h3>
+            <a href="https://go.dev/tour/list">Tour of Go</a><br>
+            <a href="https://pkg.go.dev/std">Standard Library</a><br>
+            <a href="https://goplay.tools/">Go Playground</a><br>
+            <a href="https://github.com/bridgingIT/go-workshop">Git Repo</a><br>
+            <a href="http://bridgingIT.github.io/go-workshop">Slides of this Workshop</a>
+        </section>
+        <section>
+            <h2>History</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <td>2007</td>
+                    <td>Work on Go started at Google</td>
+                </tr>
+                <tr>
+                    <td>2012</td>
+                    <td>Release Version 1.0</td>
+                </tr>
+                <tr>
+                    <td>2012</td>
+                    <td>first Go Conference in Denver/Colorado</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>Introduction of Generics in Release 1.18</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>current Release is 1.20.3</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h3>Companies using Go</h3>
+            <img src="img/companies.PNG">
+        </section>
+        <!-- <section data-background="https://go.dev/talks/2012/splash/datacenter.jpg">
+         </section>
+         <section>
+             <h3>Motivation behind Go</h3>
+             <ul>
+                 <li>Dissatisfaction with existing Programming Languages like <a href="https://de.wikipedia.org/wiki/C%2B%2B">C++</a>/<a
+                         href="https://de.wikipedia.org/wiki/Java_(Programmiersprache)">Java</a></nobr></li>
+                 <li>address Pain Points in large scale Software Development</li>
+                 <li>"Language Design in the Service of Software Engineering" (Rob Pike)</li>
+             </ul>
+         </section>
+         <section>
+             <h3>Personal Motivation</h3>
+             <ul>
+                 <li>Java-VM Deployments in Kubernetes are too Resource hungry</li>
+                 <li>one Approach: Ahead-of-Time compilation of Java-Bytecode with <a href="https://www.graalvm.org/">GraalVM</a>/<a href="https://quarkus.io/">Quarkus</a></li>
+                 <li>are there other Possibilities?</li>
+             </ul>
+         </section>
+         <section data-background="img/flying_go.jpg">
+         </section>-->
+        <section>
+            <h3>Go Features</h3>
+            <ul>
+                <li>Compilation into Machine Code</li>
+                <li>static Typing (with Type Inference)</li>
+                <li>Concurrency with lightweight Threads</li>
+                <li>automatic Garbage Collection</li>
+                <li>built-in Dependency Management</li>
+                <li>completely OpenSource (BSD License)</li>
+                <li>extensive standard Library (<a href="https://pkg.go.dev/">pkg.go.dev</a>)</li>
+            </ul>
+        </section>
+        <section>
+            <h3>DEMO: <a href="https://goplay.tools/">Hello World</a></h3>
+        </section>
+        <section>
+            <h3>Exercise 1: Hello World</h3>
+            <ol>
+                <li>mkdir hello-go</li>
+                <li>cd hello-go</li>
+                <li>go mod init hello-go</li>
+                <li>add file main.go with <a href="https://goplay.tools/">Hello World</a></li>
+                <li>go build</li>
+                <li>./hello-go (.exe on Windows)</li>
+            </ol>
+        </section>
+        <section>
+            <h3>Language Characteristics</h3>
+            <ul>
+                <li>Data Types: <a href="https://goplay.tools/snippet/K3ct4s6Dagj">Basic Types</a>, <a href="https://goplay.tools/snippet/K3ct4s6Dagj">Arrays</a>, <a
+                        href="https://goplay.tools/snippet/K3ct4s6Dagj">Maps</a> and <a href="https://goplay.tools/snippet/2VAnpOINlsK">Structs</a></li>
+                <li><a href="https://goplay.tools/snippet/iGdeYe9Brzc">Pointers</a>, but no Pointer Arithmetics</li>
+                <li>C-inspired Syntax</li>
+                <li>Packages used for Structuring Source Files</li>
+                <li>Generics (since Release <a href="https://tip.golang.org/doc/go1.18">1.18</a> on 15.03.2022)</li>
+                <li>General: Focus on Minimalism and Simplicity</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Exercise 2a: Soundex</h3>
+            <ul>
+                <li><a href="https://de.wikipedia.org/wiki/Soundex">Description</a> of (engl.) Soundex Algorithm</li>
+                <li>Golang &rarr; G452, Soundex &rarr; S532 </li>
+                <li>Create Package "soundex" and implement Function Soundex (soundex.go)</li>
+            </ul>
+            <pre style="width:60%"><code data-trim data-noescape data-line-numbers>
+package soundex
+
+func Soundex(s string) string {
+    //your code here
+    return result
+}
+            </code></pre>
+        </section>
+        <section>
+            <h3>Error Handling</h3>
+            <ul>
+                <li>no try/catch, no Exceptions</li>
+                <li><a href="https://goplay.tools/snippet/6exEPa91mUm">Error</a> as additional Return Type</li>
+                <li>Error == nil means no Error</li>
+            </ul>
+            <pre style="width:40%"><code data-trim data-noescape data-line-numbers>
+type error interface {
+    Error() string
+}
+            </code></pre>
+        </section>
+        <section>
+            <h3>DEMO: <a href="https://goplay.tools/snippet/6exEPa91mUm">Error Handling</a></h3>
+        </section>
+        <!--<section>
+            <div style="height:450px">
+                <canvas data-chart="bar">-->
+                    <!--
+                    {
+                    "data": {
+                    "labels": [ "Go (25)", "Java (67)", "C++ (92)", "C# (107)", "JS (46)", "Python (38)"],
+                    "datasets":[
+                    {
+                    "data":[25, 67, 92, 107, 46, 38],
+                    "label":"Number of Keywords"
+                    }
+                    ]
+                    }
+                    }
+                    -->
+                <!--</canvas>
+            </div>
+        </section>-->
+        <section>
+            <h3>Exercise 2b: Soundex Errors</h3>
+            <ul>
+                <li>adjust Signature of Soundex Function</li>
+                <li>return Error on empty Input String</li>
+                <li>call function in main and print the error</li>
+            </ul>
+            <pre style="width:60%"><code data-trim data-noescape data-line-numbers>
+package soundex
+
+func Soundex(s string) (string, error) {
+    //your code here
+    return result, err
+}
+            </code></pre>
+        </section>
+        <section>
+            <h3>Exercise 2c: Soundex Testing</h3>
+            <ul>
+                <li>add file soundex_test.go</li>
+                <li>write some Tests, also for Error Case</li>
+                <li>run Tests in IDE and CLI (go test ./...)</li>
+            </ul>
+            <pre style="width:60%"><code data-trim data-noescape data-line-numbers>
+package soundex
+
+import (
+	"testing"
+)
+
+func TestSoundex(t *testing.T) {
+	soundex, _ := Soundex("Golang")
+	if soundex != "G452" {
+		t.FailNow()
+	}
+}
+            </code></pre>
+        </section>
+        <section>
+            <h3>Exercise 2d: Soundex Testify</h3>
+            <ul>
+                <li>add Dependency: go get <a href="https://github.com/stretchr/testify">github.com/stretchr/testify</a></li>
+                <li>use testify Assertions in your Tests</li>
+                <li>afterwards: run go get -u and go mod tidy</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Next Exercises on more<br> Real-World App</h3>
+            <ul>
+                <li>Movie Database</li>
+                <li>REST, Service and Database Layer</li>
+                <li>Request Mapping with <a href="https://github.com/go-chi/chi">Chi</a></li>
+                <li>Later: Comparison between same App written in<br>Go and Java/Spring Boot</li>
+            </ul>
+        </section>
+        <section data-background="img/movieapp.png" data-background-size="80%">
+        </section>
+        <section>
+            <h3>Object Orientation</h3>
+            <ul>
+                <li>supported, but without Classes</li>
+                <li>Methods can be defined on Structs</li>
+                <li>Composition over Inheritance</li>
+                <li>implicit Interface Implementation</li>
+            </ul>
+        </section>
+        <section>
+            <h3>DEMO: <a href="https://goplay.tools/snippet/iJKpBpF4Vkk">Object Orientation</a></h3>
+        </section>
+        <section>
+            <h3>Exercise 3: Service Implementation</h3>
+            <ul>
+                <li>Checkout Branch <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">service-implementation</a></li>
+                <li>implement the Interface MovieService</li>
+                <li>use the InMemoryRepository in your Implementation</li>
+                <li>Test your Implementation (prepared Postman calls)</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Exercise 4: Mongo Repository Implementation</h3>
+            <ul>
+                <li>Checkout Branch <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">repository-implementation</a></li>
+                <li>create a fully working MongoRepository which implements MovieRepository</li>
+                <li>use your MongoRepository instead of InMemoryRepository in the App</li>
+                <li>Test your Implementation (prepared Postman calls)</li>
+            </ul>
+        </section>
+        <!--<section>
+            <h3>Concurrency</h3>
+            <ul>
+                <li>Goroutine: lightweight Thread managed by the Go Runtime </li>
+                <li><a href="https://pkg.go.dev/sync">sync</a> Package with Mutex/Locks and WaitGroups</li>
+                <li>Concept of <a href="https://go.dev/tour/concurrency/2">Channels</a> for Goroutine Communication</li>
+                <li>"Don't communicate by sharing Memory, share Memory by Communicating" (Rob Pike)</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Demo: <a href="https://goplay.tools/snippet/wbXV9evRMHY">Channel</a></h3>
+        </section>-->
+        <section>
+            <h3>Comparison Go and Java App</h3>
+            <ul>
+                <li>Docker Image Size</li>
+                <li>Container Startup Time</li>
+                <li>Container Memory Consumption</li>
+                <li>Complexity/Simplicity of the Code</li>
+                <li>What did You like in Go (or not)?</li>
+            </ul>
+        </section>
+<!--        <section>-->
+<!--            <h3>Conclusion</h3>-->
+<!--            <ul>-->
+<!--                <li>small Memory Footprint and fast Startup Time</li>-->
+<!--                <li>good Fit for Microservice Architectures and/or Cloud Applications</li>-->
+<!--                <li>steep Learning Curve and lean Ecosystem</li>-->
+<!--                <li>good online Documentation</li>-->
+<!--            </ul>-->
+<!--        </section>-->
+    </div>
+</div>
+<img style="position: absolute; bottom:0; left:70%; z-index:-1" src="img/golang-dunkel.png" height="120" alt="bIT Logo"/>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+<script src="plugin/chart/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0-rc"></script>
+
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        controlsTutorial: false,
+        slideNumber: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealChart],
+        chart: {
+            defaults: {
+                color: 'black', // color of labels
+                bold: true,
+                font: {size: 26}
+            },
+            bar: {backgroundColor: ["#00aed9"]},
+        }
+    });
+</script>
+</body>
+</html>

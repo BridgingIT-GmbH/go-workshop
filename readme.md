@@ -2,6 +2,7 @@
 ## Folders
 | folder         | intro                                                                                            |
 |----------------|--------------------------------------------------------------------------------------------------|
+| docs           | Slides for the Workshop                                                                          |
 | postman        | contains a postman collection for the moviedb                                                    |
 | moviedb-docker | contains a docker-compose file that creates a mongodb, mongodb-express and moviedb-java endpoint |
 | moviedb-java   | Spring Boot Implementation of moviedb endpoint                                                   |
