@@ -35,11 +35,11 @@
         </section>
         <section>
             <h3>Helpful Links</h3>
+            Git Repo: <a href="https://github.com/bridgingIT/go-workshop">github.com/bridgingIT/go-workshop.git</a><br>
+            <a href="http://bridgingIT.github.io/go-workshop">Slides of this Workshop</a><br>
             <a href="https://go.dev/tour/list">Tour of Go</a><br>
             <a href="https://pkg.go.dev/std">Standard Library</a><br>
             <a href="https://goplay.tools/">Go Playground</a><br>
-            <a href="https://github.com/bridgingIT/go-workshop">Git Repo</a><br>
-            <a href="http://bridgingIT.github.io/go-workshop">Slides of this Workshop</a>
         </section>
         <section>
             <h2>History</h2>
@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                     <td>2023</td>
-                    <td>current Release is 1.20.3</td>
+                    <td>current Release is 1.20.5</td>
                 </tr>
                 </tbody>
             </table>
@@ -254,17 +254,18 @@ func TestSoundex(t *testing.T) {
         <section>
             <h3>Exercise 3: Service Implementation</h3>
             <ul>
-                <li>Checkout Branch <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">service-implementation</a></li>
-                <li>implement the Interface MovieService</li>
-                <li>use the InMemoryRepository in your Implementation</li>
+                <li>git clone <a href="https://github.com/bridgingIT/go-workshop">github.com/bridgingIT/go-workshop</a></li>
+                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">service-implementation</a></li>
+                <li><nobr>implement the Interface MovieService in moviedb-go</nobr></li>
+                <li>use the InMemoryRepository in your Service Implementation</li>
                 <li>Test your Implementation (prepared Postman calls)</li>
             </ul>
         </section>
         <section>
             <h3>Exercise 4: Mongo Repository Implementation</h3>
             <ul>
-                <li>Checkout Branch <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">repository-implementation</a></li>
-                <li>create a fully working MongoRepository which implements MovieRepository</li>
+                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/repository-implementation">repository-implementation</a></li>
+                <li>create a fully working MongoRepository which implements MovieRepository in moviedb-go</li>
                 <li>use your MongoRepository instead of InMemoryRepository in the App</li>
                 <li>Test your Implementation (prepared Postman calls)</li>
             </ul>
