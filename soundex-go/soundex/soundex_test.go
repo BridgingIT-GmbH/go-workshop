@@ -1,40 +1,31 @@
 package soundex
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestGolang(t *testing.T) {
 	soundex, _ := Soundex("Golang")
-	if soundex != "G452" {
-		t.FailNow()
-	}
+	assert.Equal(t, "G452", soundex)
 }
 
 func TestHallo(t *testing.T) {
 	soundex, _ := Soundex("Hallo")
-	if soundex != "H400" {
-		t.FailNow()
-	}
+	assert.Equal(t, "H400", soundex)
 }
 
 func TestEntwicklertag(t *testing.T) {
 	soundex, _ := Soundex("Entwicklertag")
-	if soundex != "E532" {
-		t.FailNow()
-	}
+	assert.Equal(t, "E532", soundex)
 }
 
 func TestWow(t *testing.T) {
 	soundex, _ := Soundex("Wow")
-	if soundex != "W000" {
-		t.FailNow()
-	}
+	assert.Equal(t, "W000", soundex)
 }
 
-func TestErrorEntwicklertag(t *testing.T) {
+func TestError(t *testing.T) {
 	_, err := Soundex("")
-	if err == nil {
-		t.FailNow()
-	}
+	assert.NotNil(t, err)
 }
