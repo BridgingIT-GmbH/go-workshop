@@ -8,6 +8,9 @@
 | moviedb-java   | Spring Boot Implementation of moviedb endpoint                                                   |
 | moviedb-go     | Go Implementation of moviedb endpoint                                                            |
 
+### Start the Slides
+[http://bridgingIT.github.io/go-workshop](http://bridgingIT.github.io/go-workshop)
+
 ### Build docker image for moviedb-java
 Switch to folder [moviedb-java](./moviedb-java/) and use [Dockerfile](./moviedb-java/Dockerfile) to build image:
 ```bash
