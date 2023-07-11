@@ -9,6 +9,9 @@
 | postman        | contains a postman collection for the moviedb                                                    |
 | soundex        | contains the soundex exercise                                                                    |
 
+### Start the Slides
+[http://bridgingIT.github.io/go-workshop](http://bridgingIT.github.io/go-workshop)
+
 ### Build docker image for moviedb-java
 Switch to folder [moviedb-java](./moviedb-java/) and use [Dockerfile](./moviedb-java/Dockerfile) to build image:
 ```bash
