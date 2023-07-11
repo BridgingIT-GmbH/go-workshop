@@ -2,11 +2,12 @@
 ## Folders
 | folder         | intro                                                                                            |
 |----------------|--------------------------------------------------------------------------------------------------|
-| docs           | Slides for the Workshop                                                                          |
-| postman        | contains a postman collection for the moviedb                                                    |
+| docs           | Slides for the Workshop (open index.html)                                                        |
 | moviedb-docker | contains a docker-compose file that creates a mongodb, mongodb-express and moviedb-java endpoint |
 | moviedb-java   | Spring Boot Implementation of moviedb endpoint                                                   |
 | moviedb-go     | Go Implementation of moviedb endpoint                                                            |
+| postman        | contains a postman collection for the moviedb                                                    |
+| soundex        | contains the soundex exercise                                                                    |
 
 ### Build docker image for moviedb-java
 Switch to folder [moviedb-java](./moviedb-java/) and use [Dockerfile](./moviedb-java/Dockerfile) to build image:
