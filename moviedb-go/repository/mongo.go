@@ -9,15 +9,15 @@ import (
 	"log"
 )
 
-type MongoMovieDbRepository struct {
+type MongoRepository struct {
 	client *mongo.Client
 }
 
-func NewMongoMovieDbRepository(client *mongo.Client) MongoMovieDbRepository {
-	return MongoMovieDbRepository{client}
+func NewMongoRepository(client *mongo.Client) *MongoRepository {
+	return &MongoRepository{client}
 }
 
-func (repo MongoMovieDbRepository) FindAll() (*[]model.Movie, error) {
+func (repo *MongoRepository) FindAll() (*[]model.Movie, error) {
 	var movies []model.Movie
 	cursor, err := withMovieCollection(repo.client).Find(context.TODO(), bson.D{})
 	if err != nil {
@@ -33,20 +33,20 @@ func (repo MongoMovieDbRepository) FindAll() (*[]model.Movie, error) {
 		return &movies, nil
 	}
 }
-func (repo MongoMovieDbRepository) FindById(id string) (*model.Movie, error) {
+func (repo *MongoRepository) FindById(id string) (*model.Movie, error) {
 	filter := bson.D{{"id", id}}
 	var movie model.Movie
 	err := withMovieCollection(repo.client).FindOne(context.TODO(), filter).Decode(&movie)
 	return &movie, err
 }
-func (repo MongoMovieDbRepository) CreateOrUpdate(movie model.Movie) (*model.Movie, error) {
+func (repo *MongoRepository) CreateOrUpdate(movie *model.Movie) (*model.Movie, error) {
 	filter := bson.D{{"id", movie.Id}}
 	update := bson.M{"$set": movie}
 	opts := options.Update().SetUpsert(true)
 	_, err := withMovieCollection(repo.client).UpdateOne(context.TODO(), filter, update, opts)
-	return &movie, err
+	return movie, err
 }
-func (repo MongoMovieDbRepository) Delete(id string) {
+func (repo *MongoRepository) Delete(id string) {
 	filter := bson.D{{"id", id}}
 	_, err := withMovieCollection(repo.client).DeleteOne(context.TODO(), filter)
 	if err != nil {

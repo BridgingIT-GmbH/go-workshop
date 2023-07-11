@@ -1,11 +1,10 @@
-package config
+package rest
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/go-workshop/moviedb/rest"
 )
 
-func Routes(movieDbController *rest.MovieDbController) *chi.Mux {
+func Routes(movieDbController *MovieController) *chi.Mux {
 
 	r := chi.NewRouter()
 	r.Get("/movies", movieDbController.FindAll)

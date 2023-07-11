@@ -5,29 +5,29 @@ import (
 	"github.com/google/uuid"
 )
 
-type MovieDbService struct {
-	repo MovieDbRepository
+type DomainMovieService struct {
+	repo MovieRepository
 }
 
-func NewMovieDbService(repo MovieDbRepository) *MovieDbService {
-	return &MovieDbService{repo}
+func NewDomainMovieService(repo MovieRepository) *DomainMovieService {
+	return &DomainMovieService{repo}
 }
 
-func (s *MovieDbService) LoadAllMovies() (*[]model.Movie, error) {
+func (s *DomainMovieService) LoadAllMovies() (*[]model.Movie, error) {
 	return s.repo.FindAll()
 }
 
-func (s *MovieDbService) LoadMovieById(id string) (*model.Movie, error) {
+func (s *DomainMovieService) LoadMovieById(id string) (*model.Movie, error) {
 	return s.repo.FindById(id)
 }
 
-func (s *MovieDbService) CreateOrUpdateMovie(movie model.Movie) (*model.Movie, error) {
+func (s *DomainMovieService) CreateOrUpdateMovie(movie *model.Movie) (*model.Movie, error) {
 	if &movie.Id == nil || movie.Id == "" {
 		movie.Id = uuid.NewString()
 	}
 	return s.repo.CreateOrUpdate(movie)
 }
 
-func (s *MovieDbService) DeleteMovie(id string) {
+func (s *DomainMovieService) DeleteMovie(id string) {
 	s.repo.Delete(id)
 }

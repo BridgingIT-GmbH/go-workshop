@@ -11,15 +11,14 @@ import (
 )
 
 func main() {
-
 	mongoClient := config.CreateClient(config.MongoUri)
-	movieDbRepo := repository.NewMongoMovieDbRepository(mongoClient)
+	movieDbRepo := repository.NewMongoRepository(mongoClient)
 
-	movieDbService := service.NewMovieDbService(movieDbRepo)
-	movieDbController := rest.NewMovieDbController(movieDbService)
+	movieDbService := service.NewDomainMovieService(movieDbRepo)
+	movieDbController := rest.NewMovieController(movieDbService)
 
 	log.Println(fmt.Sprintf("Server is ready at: '%v'", config.ServerHostPort))
-	if err := http.ListenAndServe(config.ServerHostPort, config.Routes(movieDbController)); err != nil {
+	if err := http.ListenAndServe(config.ServerHostPort, rest.Routes(movieDbController)); err != nil {
 		log.Fatal(err.Error())
 	}
 }
