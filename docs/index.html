@@ -185,6 +185,18 @@ func Soundex(s string) string {
             </code></pre>
         </section>
         <section>
+            <h3>Soundex Code</h3>
+            <img style="morgin-right:20px; float: right" src="https://arquivo.devmedia.com.br/artigos/Ronaldo_Lanhellas/Algoritmo-Fonetico-Soundex/Algoritmo-Fonetico-Soundex1.jpg" >
+            <ul style="width:70%">
+                <li>first Letter uppercase, followed by exactly 3 Numbers (Soundex &rarr; S532)</li>
+                <li>Mapping of Letters see Table</li>
+                <li>No Mapping for A/E/I/O/U/H/W/Y</li>
+                <li>no consecutive equal Numbers</li>
+                <li>ensure length 4, add Zeros or cut</li>
+                <li>Hallo &rarr; H400, Entwicklertag &rarr; E532</li>
+            </ul>
+        </section>
+        <section>
             <h3>Error Handling</h3>
             <ul>
                 <li>no try/catch, no Exceptions</li>

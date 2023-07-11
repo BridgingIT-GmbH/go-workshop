@@ -7,7 +7,7 @@
 | moviedb-java   | Spring Boot Implementation of moviedb endpoint                                                   |
 | moviedb-go     | Go Implementation of moviedb endpoint                                                            |
 | postman        | contains a postman collection for the moviedb                                                    |
-| soundex        | contains the soundex exercise                                                                    |
+| soundex-go     | Go Implementation of Soundex                                                                     |
 
 ### Start the Slides
 [http://bridgingIT.github.io/go-workshop](http://bridgingIT.github.io/go-workshop)
