@@ -35,6 +35,6 @@ services:
 #    depends_on:
 #      - mongo
 #    ports:
-#      - "8090:8080"
+#      - "8090:8090"
 #    environment:
 #      MONGO_URI: "mongodb://mongo:27017"
