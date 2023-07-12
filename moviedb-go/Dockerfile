@@ -13,7 +13,7 @@ RUN go build -o /opt/moviedb/moviedb
 FROM scratch
 COPY --from=build /opt/moviedb/moviedb /opt/moviedb/moviedb
 ENV MONGO_URI "mongodb://localhost:27017"
-ENV SERVER_HOST_PORT "0.0.0.0:8080"
-EXPOSE 8080
+ENV SERVER_HOST_PORT "0.0.0.0:8090"
+EXPOSE 8090
 ENTRYPOINT ["/opt/moviedb/moviedb"]
 
