@@ -16,12 +16,16 @@
 <body>
 <div class="reveal">
     <img style="margin:0.3em 0em 0em 0.3em" src="img/Go-Logo_Blue-reduced.png" height="70" alt="Go Logo"/>
+    <img style="position: absolute; top:-0.2em; right:0.3em" src="img/bIT.png" height="50" alt="bIT Logo"/>
     <div class="slides">
         <section>
             <h3>Workshop: Introduction to <br>the Programming Language<br>
                 <a style="font-style: italic" href="https://go.dev">Go</a>
             </h3>
-            <p>bIT Entwicklertag 14.07.2023</p>
+            <p>HS Mannheim 28.07.2023<br>Stefan Zilch & Marcel Schneider</p>
+            <p>
+
+            </p>
         </section>
         <section>
             <h3>Our Agenda for today</h3>
@@ -64,7 +68,7 @@
             <h3>Tools you need locally</h3>
             <ul>
                 <li>Latest <a href="https://go.dev/dl/">Go</a> Version</li>
-                <li>IDE (maybe <a href="https://www.jetbrains.com/de-de/go/">Goland/IntelliJ</a> or <a href="https://code.visualstudio.com/download">VS Code</a>)</li>
+                <li>IDE (maybe  <a href="https://code.visualstudio.com/download">VS Code</a> or <a href="https://www.jetbrains.com/de-de/go/">Goland/IntelliJ</a>)</li>
                 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
                 <li><a href="https://www.postman.com/downloads/">Postman</a></li>
                 <li><a href="https://www.docker.com/products/docker-desktop/">Docker</a></li>
@@ -109,7 +113,7 @@
             <h3>Companies using Go</h3>
             <img src="img/companies.PNG">
         </section>
-        <!-- <section data-background="https://go.dev/talks/2012/splash/datacenter.jpg">
+        <section data-background="https://go.dev/talks/2012/splash/datacenter.jpg">
          </section>
          <section>
              <h3>Motivation behind Go</h3>
@@ -120,16 +124,6 @@
                  <li>"Language Design in the Service of Software Engineering" (Rob Pike)</li>
              </ul>
          </section>
-         <section>
-             <h3>Personal Motivation</h3>
-             <ul>
-                 <li>Java-VM Deployments in Kubernetes are too Resource hungry</li>
-                 <li>one Approach: Ahead-of-Time compilation of Java-Bytecode with <a href="https://www.graalvm.org/">GraalVM</a>/<a href="https://quarkus.io/">Quarkus</a></li>
-                 <li>are there other Possibilities?</li>
-             </ul>
-         </section>
-         <section data-background="img/flying_go.jpg">
-         </section>-->
         <section>
             <h3>Go Features</h3>
             <ul>
@@ -140,8 +134,26 @@
                 <li>built-in Dependency Management</li>
                 <li>completely OpenSource (BSD License)</li>
                 <li>extensive standard Library (<a href="https://pkg.go.dev/">pkg.go.dev</a>)</li>
-                <li>Keywords: Go (25) / Java (50) / C# (116)</li>
             </ul>
+        </section>
+        <section>
+            <div style="height:450px">
+                <canvas data-chart="bar">
+                    <!--
+                    {
+                    "data": {
+                    "labels": [ "Go (25)", "Java (67)", "C++ (92)", "C# (107)", "JS (46)", "Python (38)"],
+                    "datasets":[
+                    {
+                    "data":[25, 67, 92, 107, 46, 38],
+                    "label":"Number of Keywords"
+                    }
+                    ]
+                    }
+                    }
+                    -->
+                </canvas>
+            </div>
         </section>
         <section>
             <h3>DEMO: <a href="https://goplay.tools/">Hello World</a></h3>
@@ -213,25 +225,6 @@ type error interface {
         <section>
             <h3>DEMO: <a href="https://goplay.tools/snippet/jfjm2y8hGYL">Error Handling</a></h3>
         </section>
-        <!--<section>
-            <div style="height:450px">
-                <canvas data-chart="bar">-->
-                    <!--
-                    {
-                    "data": {
-                    "labels": [ "Go (25)", "Java (67)", "C++ (92)", "C# (107)", "JS (46)", "Python (38)"],
-                    "datasets":[
-                    {
-                    "data":[25, 67, 92, 107, 46, 38],
-                    "label":"Number of Keywords"
-                    }
-                    ]
-                    }
-                    }
-                    -->
-                <!--</canvas>
-            </div>
-        </section>-->
         <section>
             <h3>Exercise 2b: Soundex Errors</h3>
             <ul>
@@ -354,7 +347,7 @@ func TestSoundex(t *testing.T) {
 <!--        </section>-->
     </div>
 </div>
-<img style="position: absolute; bottom:0; left:70%; z-index:-1" src="img/golang-dunkel.png" height="120" alt="bIT Logo"/>
+<img style="position: absolute; bottom:0; left:70%; z-index:-1" src="img/golang-dunkel.png" height="120" alt="Gopher"/>
 
 <script src="dist/reveal.js"></script>
 <script src="plugin/notes/notes.js"></script>
