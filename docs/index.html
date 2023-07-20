@@ -23,12 +23,47 @@
                 <a style="font-style: italic" href="https://go.dev">Go</a>
             </h3>
             <p>Stefan Zilch & Marcel Schneider<br>HS Mannheim 28.07.2023</p>
-            <p>
-
-            </p>
         </section>
         <section>
-            <h3>Our Agenda for today</h3>
+            <table>
+                <tr>
+                    <td><img style="padding:0;margin:0" src="img/stefan.jpg" height="200"><br><span style="padding:0;margin:0"><small>Stefan Zilch</small></span></td>
+                    <td><img style="padding:0;margin:0" src="img/marcel.jpg" height="200"><br><span style="padding:0;margin:0"><small>Marcel Schneider</small></span></td>
+                </tr>
+            </table>
+            <img src="img/bit_claim.jpg" alt="bIT Logo" height="140">
+        </section>
+        <section>
+            <h3>Our Agenda for today (1)</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Topic</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>09:00 - 10:15</td>
+                    <td>Intro & HandsOn: Hello World</td>
+                </tr>
+                <tr>
+                    <td>10:15 - 10:30</td>
+                    <td>Coffee Break</td>
+                </tr>
+                <tr>
+                    <td>10:30 - 12:30</td>
+                    <td>HandsOn: Soundex</td>
+                </tr>
+                <tr>
+                    <td>12:30 - 13:30</td>
+                    <td>Lunch Break</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h3>Our Agenda for today (2)</h3>
             <table>
                 <thead>
                     <tr>
@@ -38,31 +73,36 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>13:15 - 13:45</td>
-                        <td>HandsOn: Hello World</td>
+                        <td>13:30 - 14:00</td>
+                        <td>Object Orientation in Go</td>
                     </tr>
                     <tr>
-                        <td>13:45 - 15:15</td>
-                        <td>HandsOn: Soundex</td>
+                        <td>14:00 - 15:15</td>
+                        <td>HandsOn: Movie Database</td>
                     </tr>
                     <tr>
                         <td>15:15 - 15:30</td>
                         <td>Coffee Break</td>
                     </tr>
                     <tr>
-                        <td>15:30 - 15:45</td>
-                        <td>Object Orientation in Go</td>
-                    </tr>
-                    <tr>
-                        <td>15:45 - 16:30</td>
-                        <td>HandsOn: Movie Database</td>
+                        <td>15:30 - 16:30</td>
+                        <td>HandsOn: Concurrency</td>
                     </tr>
                     <tr>
                         <td>16:30 - 17:00</td>
-                        <td>Cool Down + Feedback</td>
+                        <td>Cool Down & Feedback</td>
                     </tr>
                 </tbody>
             </table>
+        </section>
+        <section>
+            <h3>Goals of this Workshop</h3>
+            <ul>
+                <li>Learn the Basics of Go</li>
+                <li>Write a Go App from scratch</li>
+                <li>Understand Error Handling, Testing, Object Orientation and Concurrency in Go</li>
+                <li>Resource Consumption: Go vs. Java</li>
+            </ul>
         </section>
         <section>
             <h3>Tools you need locally</h3>
@@ -304,26 +344,26 @@ func TestSoundex(t *testing.T) {
         <section data-background="img/movieapp.png" data-background-size="80%">
         </section>
         <section>
-            <h3>Exercise 3: Service Implementation</h3>
+            <h3>Exercise 3: Implement Repository</h3>
             <ul>
                 <li>git clone <a href="https://github.com/bridgingIT/go-workshop">github.com/bridgingIT/go-workshop</a></li>
-                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">service-implementation</a></li>
-                <li><nobr>implement the Interface MovieService in moviedb-go</nobr></li>
-                <li>use the InMemoryRepository in your Service Implementation</li>
+                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">repository-implementation</a></li>
+                <li>navigate to Subfolder moviedb-go</li>
+                <li><nobr>implement an InMemoryRepository for the moviedb-go</nobr></li>
+                <li><nobr>fulfill the Interface MovieRepository in your implementation</nobr></li>
                 <li>Test your Implementation (prepared Postman calls)</li>
             </ul>
         </section>
         <section>
-            <h3>Exercise 4: Mongo Repository Implementation</h3>
+            <h3>Comparison Go and Java App</h3>
             <ul>
-                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/repository-implementation">repository-implementation</a></li>
-                <li>create a fully working MongoRepository which implements MovieRepository in moviedb-go</li>
-                <li>use your MongoRepository instead of InMemoryRepository in the App</li>
-                <li>Test your Implementation (prepared Postman calls)</li>
+                <li>Docker Image Size</li>
+                <li>Container Startup Time</li>
+                <li>Container Memory Consumption</li>
             </ul>
         </section>
         <section>
-            <h3>Concurrency</h3>
+            <h3>Next Topic: Concurrency</h3>
             <ul>
                 <li>Goroutine: lightweight Thread managed by the Go Runtime </li>
                 <li><a href="https://pkg.go.dev/sync">sync</a> Package with Mutex/Locks and WaitGroups</li>
@@ -335,24 +375,22 @@ func TestSoundex(t *testing.T) {
             <h3>Demo: <a href="https://goplay.tools/snippet/wbXV9evRMHY">Channel</a></h3>
         </section>
         <section>
-            <h3>Comparison Go and Java App</h3>
+            <h3>Exercise 4: Website Checker</h3>
             <ul>
-                <li>Docker Image Size</li>
-                <li>Container Startup Time</li>
-                <li>Container Memory Consumption</li>
-                <li>Complexity/Simplicity of the Code</li>
+                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/website-checker">website-checker</a></li>
+                <li>navigate to subfolder website-checker-go</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Conclusion and Feedback</h3>
+            <ul>
+                <li>Small Memory Footprint and fast Startup Time</li>
+                <li>Lightweight Ecosystem</li>
+                <li>Lightweight Ecosystem</li>
+                <li>Good online Documentation</li>
                 <li>What did You like in Go (or not)?</li>
             </ul>
         </section>
-<!--        <section>-->
-<!--            <h3>Conclusion</h3>-->
-<!--            <ul>-->
-<!--                <li>small Memory Footprint and fast Startup Time</li>-->
-<!--                <li>good Fit for Microservice Architectures and/or Cloud Applications</li>-->
-<!--                <li>steep Learning Curve and lean Ecosystem</li>-->
-<!--                <li>good online Documentation</li>-->
-<!--            </ul>-->
-<!--        </section>-->
     </div>
 </div>
 <img style="position: absolute; bottom:0; left:70%; z-index:-1" src="img/golang-dunkel.png" height="120" alt="Gopher"/>
