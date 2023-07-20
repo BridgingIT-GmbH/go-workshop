@@ -1,13 +1,14 @@
 # Go Workshop
 ## Folders
-| folder         | intro                                                                                            |
-|----------------|--------------------------------------------------------------------------------------------------|
-| docs           | Slides for the Workshop (open index.html)                                                        |
-| moviedb-docker | contains a docker-compose file that creates a mongodb, mongodb-express and moviedb-java endpoint |
-| moviedb-java   | Spring Boot Implementation of moviedb endpoint                                                   |
-| moviedb-go     | Go Implementation of moviedb endpoint                                                            |
-| postman        | contains a postman collection for the moviedb                                                    |
-| soundex-go     | Go Implementation of Soundex                                                                     |
+| folder             | intro                                                                                            |
+|--------------------|--------------------------------------------------------------------------------------------------|
+| docs               | Slides for the Workshop (open index.html)                                                        |
+| moviedb-docker     | contains a docker-compose file that creates a mongodb, mongodb-express and moviedb-java endpoint |
+| moviedb-java       | Spring Boot Implementation of moviedb                                                            |
+| moviedb-go         | Go Implementation of moviedb                                                                     |
+| postman            | contains a postman collection for testing of the moviedb                                         |
+| soundex-go         | Go Implementation of Soundex                                                                     |
+| website-checker-go | Go Implementation of Website Checker                                                             |
 
 ### Start the Slides
 [http://bridgingIT.github.io/go-workshop](http://bridgingIT.github.io/go-workshop)
