@@ -11,9 +11,7 @@ import (
 )
 
 func main() {
-	mongoClient := config.CreateClient(config.MongoUri)
-	movieRepo := repository.NewMongoRepository(mongoClient)
-
+	movieRepo := repository.NewInMemoryRepository()
 	movieService := service.NewDomainMovieService(movieRepo)
 	movieController := rest.NewMovieController(movieService)
 
