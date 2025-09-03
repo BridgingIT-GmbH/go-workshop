@@ -11,7 +11,7 @@
 | website-checker-go | Go Implementation of Website Checker                                                             |
 
 ### Start the Slides
-[http://bridgingIT.github.io/go-workshop](http://bridgingIT.github.io/go-workshop)
+[https://bridgingit-gmbh.github.io/go-workshop/](https://bridgingit-gmbh.github.io/go-workshop/)
 
 ### Build docker image for moviedb-java
 Switch to folder [moviedb-java](./moviedb-java/) and use [Dockerfile](./moviedb-java/Dockerfile) to build image:
