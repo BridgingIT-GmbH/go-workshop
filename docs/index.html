@@ -12,6 +12,8 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="reveal">
@@ -22,86 +24,34 @@
             <h3>Workshop: Introduction to <br>the Programming Language<br>
                 <a style="font-style: italic" href="https://go.dev">Go</a>
             </h3>
-            <p>Stefan Zilch & Marcel Schneider<br>HS Mannheim 28.07.2023</p>
+            <p>Stefan Zilch & Marcel Schneider<br>Mannheim 18.09.2025</p>
         </section>
         <section>
             <table>
                 <tr>
-                    <td><img style="padding:0;margin:0" src="img/stefan.jpg" height="200"><br><span style="padding:0;margin:0"><small>Stefan Zilch</small></span></td>
-                    <td><img style="padding:0;margin:0" src="img/marcel.jpg" height="200"><br><span style="padding:0;margin:0"><small>Marcel Schneider</small></span></td>
+                    <td><img style="padding:0;margin:0" src="img/stefan.png" height="200"><br><span style="padding:0;margin:0"><small>Stefan Zilch</small></span></td>
+                    <td><img style="padding:0;margin:0" src="img/marcel.png" height="200"><br><span style="padding:0;margin:0"><small>Marcel Schneider</small></span></td>
                 </tr>
             </table>
             <img src="img/bit_claim.jpg" alt="bIT Logo" height="140">
         </section>
         <section>
-            <h3>Our Agenda for today (1)</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Topic</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>09:00 - 10:15</td>
-                    <td>Intro & HandsOn: Hello World</td>
-                </tr>
-                <tr>
-                    <td>10:15 - 10:30</td>
-                    <td>Coffee Break</td>
-                </tr>
-                <tr>
-                    <td>10:30 - 12:30</td>
-                    <td>HandsOn: Soundex</td>
-                </tr>
-                <tr>
-                    <td>12:30 - 13:30</td>
-                    <td>Lunch Break</td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h3>Our Agenda for today (2)</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Topic</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>13:30 - 14:00</td>
-                        <td>Object Orientation in Go</td>
-                    </tr>
-                    <tr>
-                        <td>14:00 - 15:15</td>
-                        <td>HandsOn: Movie Database</td>
-                    </tr>
-                    <tr>
-                        <td>15:15 - 15:30</td>
-                        <td>Coffee Break</td>
-                    </tr>
-                    <tr>
-                        <td>15:30 - 16:30</td>
-                        <td>HandsOn: Concurrency</td>
-                    </tr>
-                    <tr>
-                        <td>16:30 - 17:00</td>
-                        <td>Cool Down & Feedback</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h3>Agenda for today</h3>
+            <ol>
+                <li>Intro</li>
+                <li>Go Basics & HandsOn: <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/soundex-go">Soundex</a></li>
+                <li>Coffee Break <i class="fa fa-coffee" aria-hidden="true"></i></li>
+                <li>Object Orientation & HandsOn: <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/moviedb-go">Movie Database</a></li>
+                <li>Concurrency & HandsOn: <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/website-checker-go">Website Checker</a></li>
+                <li>Cool Down & Feedback</li>
+            </ol>
         </section>
         <section>
             <h3>Goals of this Workshop</h3>
             <ul>
                 <li>Learn the Basics of Go</li>
-                <li>Write a Go App from scratch</li>
+                <li>Write, compile and run Go Apps</li>
                 <li>Understand Error Handling, Testing, Object Orientation and Concurrency in Go</li>
-                <li>Resource Consumption: Go vs. Java</li>
             </ul>
         </section>
         <section>
@@ -110,20 +60,18 @@
                 <li>Latest <a href="https://go.dev/dl/">Go</a> Version</li>
                 <li>IDE (maybe  <a href="https://code.visualstudio.com/download">VS Code</a> or <a href="https://www.jetbrains.com/de-de/go/">Goland/IntelliJ</a>)</li>
                 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
-                <li><a href="https://www.postman.com/downloads/">Postman</a></li>
-                <li><a href="https://www.docker.com/products/docker-desktop/">Docker</a></li>
             </ul>
         </section>
         <section>
             <h3>Helpful Links</h3>
-            Git Repo: <a href="https://github.com/bridgingIT/go-workshop">github.com/bridgingIT/go-workshop.git</a><br>
-            Workshop Slides: <a href="http://bridgingIT.github.io/go-workshop">bridgingIT.github.io/go-workshop/</a><br>
+            Slides: <a href="https://bridgingit-gmbh.github.io/go-workshop">bridgingit-gmbh.github.io/go-workshop</a><br>
+            Git Repo: <a href="https://github.com/bridgingit-gmbh/go-workshop">github.com/bridgingit-gmbh/go-workshop</a><br>
             <a href="https://go.dev/tour/list">Tour of Go</a><br>
             <a href="https://pkg.go.dev/std">Standard Library</a><br>
             <a href="https://goplay.tools/">Go Playground</a><br>
         </section>
         <section>
-            <h2>History</h2>
+            <h2>Go History</h2>
             <table>
                 <tbody>
                 <tr>
@@ -143,8 +91,8 @@
                     <td>Introduction of Generics in Release 1.18</td>
                 </tr>
                 <tr>
-                    <td>2023</td>
-                    <td>current Release is 1.20.6</td>
+                    <td>2025</td>
+                    <td>current Release is 1.25.1</td>
                 </tr>
                 </tbody>
             </table>
@@ -179,7 +127,7 @@
         <section>
             <h3>DEMO: <a href="https://goplay.tools/">Hello World</a></h3>
         </section>
-        <section>
+        <!--<section>
             <h3>Exercise 1: Hello World</h3>
             <ol>
                 <li>mkdir hello-go</li>
@@ -189,7 +137,7 @@
                 <li>go build</li>
                 <li>./hello-go (.exe on Windows)</li>
             </ol>
-        </section>
+        </section>-->
         <section>
             <h3>Language Characteristics</h3>
             <ul>
@@ -203,7 +151,7 @@
             </ul>
         </section>
         <section>
-            <div style="height:450px">
+            <div style="height:500px">
                 <canvas data-chart="bar">
                     <!--
                     {
@@ -224,7 +172,7 @@
         <section>
             <h3>Exercise 2a: Soundex</h3>
             <ul>
-                <li>phonetic Algorithm for Indexing Names by Sound, as pronounced in English</li>
+                <li>Phonetic Algorithm for Indexing Names by Sound, as pronounced in English</li>
                 <li>Description of (engl.) Soundex Algorithm, see <a href="https://de.wikipedia.org/wiki/Soundex">https://de.wikipedia.org/wiki/Soundex</a></li>
                 <li>Examples: Golang &rarr; G452, Soundex &rarr; S532 </li>
             </ul>

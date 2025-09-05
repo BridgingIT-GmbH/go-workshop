@@ -1,3 +1,3 @@
 module github.com/go-workshop/website-checker-go
 
-go 1.20
+go 1.25
