@@ -39,10 +39,10 @@
             <h3>Agenda for today</h3>
             <ol>
                 <li>Intro</li>
-                <li>Go Basics & HandsOn: <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/soundex-go">Soundex</a></li>
+                <li>Go Basics & <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/soundex-go">Soundex</a> <i class="fa fa-keyboard-o" aria-hidden="true"></i></li>
                 <li>Coffee Break <i class="fa fa-coffee" aria-hidden="true"></i></li>
-                <li>Object Orientation & HandsOn: <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/moviedb-go">Movie Database</a></li>
-                <li>Concurrency & HandsOn: <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/website-checker-go">Website Checker</a></li>
+                <li>Object Orientation & <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/moviedb-go">Movie Database</a> <i class="fa fa-keyboard-o" aria-hidden="true"></i></li>
+                <li>Concurrency & <a href="https://github.com/BridgingIT-GmbH/go-workshop/tree/main/website-checker-go">Website Checker</a> <i class="fa fa-keyboard-o" aria-hidden="true"></i></li>
                 <li>Cool Down & Feedback</li>
             </ol>
         </section>
@@ -51,6 +51,7 @@
             <ul>
                 <li>Learn the Basics of Go</li>
                 <li>Write, compile and run Go Apps</li>
+                <li>Create a REST Webservice with Go</li>
                 <li>Understand Error Handling, Testing, Object Orientation and Concurrency in Go</li>
             </ul>
         </section>
@@ -190,20 +191,33 @@
             </ul>
         </section>
         <section>
+            <h3>Exercise 2a: Soundex Setup</h3>
+            <ol>
+                <li>git clone -b workshop <br><a href="https://github.com/bridgingit-gmbh/go-workshop">github.com/bridgingit-gmbh/go-workshop</a></li>
+                <li>cd go-workshop/soundex-go</li>
+                <li>go build</li>
+                <li>./soundex-go (.exe on Windows)</li>
+            </ol>
+            <pre style="width:60%"><code data-trim data-noescape>
+user@pc % ./soundex-go
+Implement me
+            </code></pre>
+        </section>
+        <section>
             <h3>Exercise 2a: Soundex Coding</h3>
             <ul>
-                <li>create Package <em>soundex</em></li>
-                <li>add File <em>soundex.go</em> to the Package</li>
-                <li>implement the Function <em>Soundex</em></li>
-            </ul>
-            <pre style="width:60%"><code data-trim data-noescape data-line-numbers>
+                <li>Implement the Function in <em>soundex.go</em>
+                    <pre style="width:85%"><code data-trim data-noescape data-line-numbers>
 package soundex
 
-func Soundex(s string) string {
+func Soundex(input string) string {
     //your code here
     return result
 }
-            </code></pre>
+                    </code></pre></li>
+                <li>Test your implementation,<br>run <em>go test ./soundex...</em>
+                </li>
+            </ul>
         </section>
         <section>
             <h3>Error Handling</h3>
