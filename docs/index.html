@@ -215,7 +215,11 @@ func Soundex(input string) string {
     return result
 }
                     </code></pre></li>
-                <li>Test your implementation,<br>run <em>go test ./soundex...</em>
+                <li>Test your implementation<br>
+                    <pre style="width:100%"><code data-trim data-noescapes class="language-sql">
+user@pc % go test ./soundex
+ok github.com/go-workshop/soundex-go/soundex 0.303s
+                    </code></pre>
                 </li>
             </ul>
         </section>
@@ -226,7 +230,7 @@ func Soundex(input string) string {
                 <li><a href="https://goplay.tools/snippet/jfjm2y8hGYL">Error</a> as additional Return Type</li>
                 <li>Error == nil means no Error</li>
             </ul>
-            <pre style="width:40%"><code data-trim data-noescape data-line-numbers>
+            <pre style="width:40%"><code data-trim data-noescape data-line-numbers class="language-go">
 type error interface {
     Error() string
 }
@@ -238,20 +242,22 @@ type error interface {
         <section>
             <h3>Exercise 2b: Soundex Errors</h3>
             <ul>
-                <li>adjust Signature of Soundex Function</li>
-                <li>return Error on empty Input String</li>
-                <li>call function in main and print the error</li>
-            </ul>
-            <pre style="width:60%"><code data-trim data-noescape data-line-numbers>
+                <li>adjust Signature of Soundex Function
+                  <pre style="width:80%"><code data-trim data-noescape data-line-numbers>
 package soundex
 
-func Soundex(s string) (string, error) {
+func Soundex(input string) (string, error) {
     //your code here
     return result, err
 }
-            </code></pre>
+                  </code></pre>
+                </li>
+                <li>return Error on empty Input String</li>
+                <li>check return values in main() and print the error</li>
+                <li>add a test for the error case</li>
+            </ul>
         </section>
-        <section>
+        <!--<section>
             <h3>Exercise 2c: Soundex Testing</h3>
             <ul>
                 <li>add file soundex_test.go</li>
@@ -273,13 +279,17 @@ func TestSoundex(t *testing.T) {
 	}
 }
             </code></pre>
-        </section>
+        </section>-->
         <section>
-            <h3>Exercise 2d: Soundex Testify</h3>
+            <h3>Exercise 2c: Soundex Testify</h3>
             <ul>
-                <li>add Dependency: go get <a href="https://github.com/stretchr/testify">github.com/stretchr/testify</a></li>
-                <li>use testify Assertions in your Tests</li>
-                <li>afterwards: run go get -u and go mod tidy</li>
+                <li>
+                    add Dependency: go get <a href="https://github.com/stretchr/testify">github.com/stretchr/testify</a>
+                    &rarr; see updated <em>go.mod</em>
+                </li>
+                <li>use testify <a href="https://github.com/stretchr/testify?tab=readme-ov-file#assert-package">Assertions</a> in your Tests</li>
+                <li>update all dependencies: <em>go get -u</em></li>
+                <li>cleanup dependencies: <em>go mod tidy</em></li>
             </ul>
         </section>
         <section>
