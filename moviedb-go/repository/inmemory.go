@@ -2,7 +2,8 @@ package repository
 
 import (
 	"github.com/go-workshop/moviedb/model"
-	"golang.org/x/exp/maps"
+	"maps"
+	"slices"
 )
 
 type InMemoryRepository struct {
@@ -10,21 +11,27 @@ type InMemoryRepository struct {
 }
 
 func NewInMemoryRepository() *InMemoryRepository {
-	return &InMemoryRepository{data: make(map[string]model.Movie)}
+	return &InMemoryRepository{data: testData()}
 }
 
-func (repo *InMemoryRepository) FindAll() (*[]model.Movie, error) {
-	var values = maps.Values(repo.data)
-	return &values, nil
+func (repo *InMemoryRepository) FindById(id string) *model.Movie {
+	movie, ok := repo.data[id]
+	if ok {
+		return &movie
+	} else {
+		return nil
+	}
 }
-func (repo *InMemoryRepository) FindById(id string) (*model.Movie, error) {
-	movie := repo.data[id]
-	return &movie, nil
+
+func (repo *InMemoryRepository) FindAll() []model.Movie {
+	return slices.Collect(maps.Values(repo.data))
 }
-func (repo *InMemoryRepository) CreateOrUpdate(movie *model.Movie) (*model.Movie, error) {
+
+func (repo *InMemoryRepository) CreateOrUpdate(movie *model.Movie) *model.Movie {
 	repo.data[movie.Id] = *movie
-	return movie, nil
+	return movie
 }
+
 func (repo *InMemoryRepository) Delete(id string) {
 	delete(repo.data, id)
 }

@@ -2,51 +2,38 @@ package rest
 
 import (
 	"encoding/json"
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/render"
-	"github.com/go-workshop/moviedb/model"
-	"log"
+	"fmt"
+	"log/slog"
 	"net/http"
 )
 
 type MovieController struct {
-	service MovieService
+	repository MovieRepository
 }
 
-func NewMovieController(service MovieService) *MovieController {
-	return &MovieController{service}
+func NewMovieController(repository MovieRepository) *MovieController {
+	return &MovieController{repository}
 }
-func (c *MovieController) FindAll(w http.ResponseWriter, r *http.Request) {
-	movies, err := c.service.LoadAllMovies()
-	renderOrError(w, r, movies, err)
-}
-func (c *MovieController) FindById(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-	movie, err := c.service.LoadMovieById(id)
-	renderOrError(w, r, movie, err)
-}
-func (c *MovieController) CreateOrUpdate(w http.ResponseWriter, r *http.Request) {
-	decoder := json.NewDecoder(r.Body)
-	var movie model.Movie
-	err := decoder.Decode(&movie)
-	if err == nil {
-		movie, err2 := c.service.CreateOrUpdateMovie(&movie)
-		renderOrError(w, r, movie, err2)
-	} else {
-		renderOrError(w, r, movie, err)
+
+func (controller *MovieController) Hello(response http.ResponseWriter, request *http.Request) {
+	slog.Info(fmt.Sprintf("%s %s", request.Method, request.URL))
+	_, err := fmt.Fprint(response, "Hello!")
+	if err != nil {
+		http.Error(response, err.Error(), http.StatusInternalServerError)
 	}
 }
-func (c *MovieController) Delete(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-	c.service.DeleteMovie(id)
-}
 
-func renderOrError(w http.ResponseWriter, r *http.Request, model interface{}, err error) {
-	if err == nil {
-		render.JSON(w, r, model)
-	} else {
-		log.Println(err.Error())
-		w.WriteHeader(http.StatusInternalServerError)
-		_, _ = w.Write(nil)
+func (controller *MovieController) FindById(response http.ResponseWriter, request *http.Request) {
+	slog.Info(fmt.Sprintf("%s %s", request.Method, request.URL))
+	response.Header().Set("Content-Type", "application/json")
+	var idAsString = request.PathValue("id")
+	movie := controller.repository.FindById(idAsString)
+	if movie == nil {
+		http.Error(response, "movie not found", http.StatusNotFound)
+		return
+	}
+	err := json.NewEncoder(response).Encode(movie)
+	if err != nil {
+		http.Error(response, err.Error(), http.StatusInternalServerError)
 	}
 }

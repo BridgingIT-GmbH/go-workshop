@@ -1,4 +1,4 @@
-package soundex
+package main
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -28,4 +28,5 @@ func TestWow(t *testing.T) {
 func TestError(t *testing.T) {
 	_, err := Soundex("")
 	assert.NotNil(t, err)
+	assert.Equal(t, "empty input string", err.Error())
 }

@@ -171,7 +171,7 @@
             </div>
         </section>
         <section>
-            <h3>Exercise 2a: Soundex</h3>
+            <h3>Exercise 1a: Soundex</h3>
             <ul>
                 <li>Phonetic Algorithm for Indexing Names by Sound, as pronounced in English</li>
                 <li>Description of (engl.) Soundex Algorithm, see <a href="https://de.wikipedia.org/wiki/Soundex">https://de.wikipedia.org/wiki/Soundex</a></li>
@@ -179,7 +179,7 @@
             </ul>
         </section>
         <section>
-            <h3>Exercise 2a: Soundex Algorithm</h3>
+            <h3>Exercise 1a: Soundex Algorithm</h3>
             <img style="float: right" src="https://arquivo.devmedia.com.br/artigos/Ronaldo_Lanhellas/Algoritmo-Fonetico-Soundex/Algoritmo-Fonetico-Soundex1.jpg" >
             <ul style="width:70%">
                 <li>first Letter uppercase, followed by exactly 3 Numbers (Soundex &rarr; S532)</li>
@@ -191,7 +191,7 @@
             </ul>
         </section>
         <section>
-            <h3>Exercise 2a: Soundex Setup</h3>
+            <h3>Exercise 1a: Soundex Setup</h3>
             <ol>
                 <li>git clone -b workshop <br><a href="https://github.com/bridgingit-gmbh/go-workshop">github.com/bridgingit-gmbh/go-workshop</a></li>
                 <li>cd go-workshop/soundex-go</li>
@@ -200,19 +200,18 @@
             </ol>
             <pre style="width:60%"><code data-trim data-noescape>
 user@pc % ./soundex-go
-Implement me
+implement me
             </code></pre>
         </section>
         <section>
-            <h3>Exercise 2a: Soundex Coding</h3>
+            <h3>Exercise 1a: Soundex Coding</h3>
             <ul>
                 <li>Implement the Function in <em>soundex.go</em>
                     <pre style="width:85%"><code data-trim data-noescape data-line-numbers>
 package soundex
 
 func Soundex(input string) string {
-    //your code here
-    return result
+    return "implement me"
 }
                     </code></pre></li>
                 <li>Test your implementation<br>
@@ -240,7 +239,7 @@ type error interface {
             <h3>DEMO: <a href="https://goplay.tools/snippet/jfjm2y8hGYL">Error Handling</a></h3>
         </section>
         <section>
-            <h3>Exercise 2b: Soundex Errors</h3>
+            <h3>Exercise 1b: Soundex Errors</h3>
             <ul>
                 <li>adjust Signature of Soundex Function
                   <pre style="width:80%"><code data-trim data-noescape data-line-numbers>
@@ -258,7 +257,7 @@ func Soundex(input string) (string, error) {
             </ul>
         </section>
         <!--<section>
-            <h3>Exercise 2c: Soundex Testing</h3>
+            <h3>Exercise 1c: Soundex Testing</h3>
             <ul>
                 <li>add file soundex_test.go</li>
                 <li>write some Tests, also for Error Case</li>
@@ -281,7 +280,7 @@ func TestSoundex(t *testing.T) {
             </code></pre>
         </section>-->
         <section>
-            <h3>Exercise 2c: Soundex Testify</h3>
+            <h3>Exercise 1c: Soundex Testify</h3>
             <ul>
                 <li>
                     add Dependency: go get <a href="https://github.com/stretchr/testify">github.com/stretchr/testify</a>
@@ -293,16 +292,7 @@ func TestSoundex(t *testing.T) {
             </ul>
         </section>
         <section>
-            <h3>Next Exercises on more<br> Real-World App</h3>
-            <ul>
-                <li>Movie Database</li>
-                <li>REST, Service and Database Layer</li>
-                <li>Request Mapping with <a href="https://github.com/go-chi/chi">Chi</a></li>
-                <li>Later: Comparison between same App written in<br>Go and Java/Spring Boot</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Object Orientation</h3>
+            <h3>Next Topic: Object Orientation</h3>
             <ul>
                 <li>supported, but without Classes</li>
                 <li>Methods can be defined on Structs</li>
@@ -313,27 +303,34 @@ func TestSoundex(t *testing.T) {
         <section>
             <h3>DEMO: <a href="https://goplay.tools/snippet/iJKpBpF4Vkk">Object Orientation</a></h3>
         </section>
-        <section data-background="img/movieapp.png" data-background-size="80%">
-        </section>
         <section>
-            <h3>Exercise 3: Implement Repository</h3>
+            <h3>Exercise 2: Movie Database</h3>
             <ul>
-                <li>git clone <a href="https://github.com/bridgingIT/go-workshop">https://github.com/bridgingIT/go-workshop</a></li>
-                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/service-implementation">repository-implementation</a></li>
-                <li>navigate to Subfolder moviedb-go</li>
-                <li><nobr>implement an InMemoryRepository for the moviedb-go</nobr></li>
-                <li><nobr>fulfill the Interface MovieRepository in your implementation</nobr></li>
-                <li>Test your Implementation (prepared Postman calls)</li>
+                <li>REST Webservice which manages Movie Data</li>
+                <li>HTTP Request Mapping with Go Standard Library</li>
+                <li>Usage of hardcoded Example Movies</li>
             </ul>
         </section>
+        <section data-background="img/movieapp-small.png" data-background-size="80%">
+        </section>
         <section>
+            <h3>Exercise 2: Implement REST Call</h3>
+            <ol>
+                <li>navigate to Subfolder moviedb-go</li>
+                <li>implement Endpoint <em>GET /movies/{id}</em></li>
+                <li>create <em>InMemoryRepository</em> which fulfills the existing Interface <em>MovieRepository</em> (File inmemory.go)</li>
+                <li>see example-data.go for movie test data</li>
+                <li>test the Implementation with your Browser</li>
+            </ol>
+        </section>
+        <!--<section>
             <h3>Comparison Go and Java App</h3>
             <ul>
                 <li>Docker Image Size</li>
                 <li>Container Startup Time</li>
                 <li>Container Memory Consumption</li>
             </ul>
-        </section>
+        </section>-->
         <section>
             <h3>Next Topic: Concurrency</h3>
             <ul>
@@ -347,25 +344,24 @@ func TestSoundex(t *testing.T) {
             <h3>Demo: <a href="https://goplay.tools/snippet/wbXV9evRMHY">Channel</a></h3>
         </section>
         <section>
-            <h3>Exercise 4: Website Checker</h3>
+            <h3>Exercise 3: Website Checker</h3>
             <ul>
                 <li>App which checks the Reachability of Websites</li>
                 <li>currently the App executes the Checks sequentially</li>
-                <li>TODO 1: run the Checks concurrently</li>
-                <li>TODO 2: transmit the Results to a Channel</li>
-                <li>TODO 3: receive Results in main() and print them</li>
+                <li>Goal: Execute the Checks concurrently and use Channel Synchronization</li>
             </ul>
         </section>
         <section data-background="img/Channel.png" data-background-size="65%">
         </section>
         <section>
-            <h3>Exercise 4: Website Checker</h3>
-            <ul>
-                <li>git checkout <a href="https://github.com/bridgingIT/go-workshop/tree/website-checker">website-checker</a></li>
+            <h3>Exercise 3: Website Checker</h3>
+            <ol>
                 <li>navigate to Subfolder website-checker-go</li>
-                <li>start Implementing</li>
+                <li>run the Checks concurrently</li>
+                <li>transmit the Results to a Channel</li>
+                <li>receive Results in main() and print them</li>
                 <li>compare Running Time sequential vs. concurrent</li>
-            </ul>
+            </ol>
         </section>
         <section>
             <h3>Conclusion and Feedback</h3>

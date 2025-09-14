@@ -1,4 +1,4 @@
-package soundex
+package main
 
 import (
 	"errors"
