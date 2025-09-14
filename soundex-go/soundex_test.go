@@ -1,32 +1,33 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestGolang(t *testing.T) {
-	soundex, _ := Soundex("Golang")
-	assert.Equal(t, "G452", soundex)
+	soundex := Soundex("Golang")
+	if soundex != "G452" {
+		t.Errorf("Soundex of Golang should be G452 but was %s", soundex)
+	}
 }
 
 func TestHallo(t *testing.T) {
-	soundex, _ := Soundex("Hallo")
-	assert.Equal(t, "H400", soundex)
+	soundex := Soundex("Hallo")
+	if soundex != "H400" {
+		t.Errorf("Soundex of Hallo should be H400 but was %s", soundex)
+	}
 }
 
 func TestEntwicklertag(t *testing.T) {
-	soundex, _ := Soundex("Entwicklertag")
-	assert.Equal(t, "E532", soundex)
+	soundex := Soundex("Entwicklertag")
+	if soundex != "E532" {
+		t.Errorf("Soundex of Entwicklertag should be E532 but was %s", soundex)
+	}
 }
 
 func TestWow(t *testing.T) {
-	soundex, _ := Soundex("Wow")
-	assert.Equal(t, "W000", soundex)
-}
-
-func TestError(t *testing.T) {
-	_, err := Soundex("")
-	assert.NotNil(t, err)
-	assert.Equal(t, "empty input string", err.Error())
+	soundex := Soundex("Wow")
+	if soundex != "W000" {
+		t.Errorf("Soundex of Wow should be W000 but was %s", soundex)
+	}
 }

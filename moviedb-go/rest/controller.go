@@ -1,7 +1,6 @@
 package rest
 
 import (
-	"encoding/json"
 	"fmt"
 	"log/slog"
 	"net/http"
@@ -11,8 +10,8 @@ type MovieController struct {
 	repository MovieRepository
 }
 
-func NewMovieController(repository MovieRepository) *MovieController {
-	return &MovieController{repository}
+func NewMovieController() *MovieController {
+	return &MovieController{}
 }
 
 func (controller *MovieController) Hello(response http.ResponseWriter, request *http.Request) {
@@ -26,14 +25,12 @@ func (controller *MovieController) Hello(response http.ResponseWriter, request *
 func (controller *MovieController) FindById(response http.ResponseWriter, request *http.Request) {
 	slog.Info(fmt.Sprintf("%s %s", request.Method, request.URL))
 	response.Header().Set("Content-Type", "application/json")
-	var idAsString = request.PathValue("id")
-	movie := controller.repository.FindById(idAsString)
-	if movie == nil {
-		http.Error(response, "movie not found", http.StatusNotFound)
-		return
-	}
-	err := json.NewEncoder(response).Encode(movie)
-	if err != nil {
-		http.Error(response, err.Error(), http.StatusInternalServerError)
-	}
+
+	//TODO
+	//adjust routing (routes.go)
+	//implement this method
+	//fetch movie from InMemoryRepository by id
+
+	//example for serializing a movie to json
+	//json.NewEncoder(response).Encode(movie)
 }

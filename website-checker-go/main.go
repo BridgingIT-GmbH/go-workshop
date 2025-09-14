@@ -22,25 +22,20 @@ var urlsToCheck = []string{
 }
 
 func main() {
-	channel := make(chan string, len(urlsToCheck))
 	start := time.Now()
 
 	for _, url := range urlsToCheck {
-		go check(url, channel)
-	}
-
-	for index := 0; index < len(urlsToCheck); index++ {
-		fmt.Println(<-channel)
+		fmt.Println(check(url))
 	}
 
 	fmt.Printf("Checking websites took %d ms\n", time.Since(start).Milliseconds())
 }
 
-func check(url string, channel chan string) {
+func check(url string) string {
 	result, err := http.Get(url)
 	if err != nil {
-		channel <- url + ": " + err.Error()
+		return url + ": " + err.Error()
 	} else {
-		channel <- url + ": " + result.Status
+		return url + ": " + result.Status
 	}
 }

@@ -7,6 +7,6 @@ import (
 func NewRouter(controller *MovieController) *http.ServeMux {
 	router := http.NewServeMux()
 	router.HandleFunc("GET /", controller.Hello)
-	router.HandleFunc("GET /movies/{id}", controller.FindById)
+	//TODO: add endpoint
 	return router
 }
